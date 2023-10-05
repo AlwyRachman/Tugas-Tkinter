@@ -34,8 +34,12 @@ class Window(tk.Tk):
         
         liter_sebelumnya = jarak_sebelumnya / KPL_sebelumnya
         liter_sekarang = jarak_sekarang / KPL_sekarang
-        liter = liter_sebelumnya + liter_sekarang
+        liter = liter_sekarang - liter_sebelumnya
+        if liter<0 :
+            liter = liter * -1
         jarak_terakhir = jarak_sekarang - jarak_sebelumnya
+        if jarak_terakhir<0 :
+            jarak_terakhir = jarak_terakhir * -1
         KPL_terakhir = jarak_terakhir / liter
         
         self.KPL_terakhir_label.configure(text="{:.2f}".format(KPL_terakhir))
